@@ -1,0 +1,79 @@
+DiceWarJogo:
+
+<DiceWarJogo>
+    orientation: 'vertical'
+    Button:
+        on_press: root.nova_rodada()
+        on_press: root.zerar_dado1()
+        on_press: root.zerar_dado2()
+        text: f'Rodadas:\n      {root.n_rodadas}'
+        size_hint: 1, .6
+
+    BoxLayout:
+        spacing: "15dp"
+        Button:
+            text: "Jogador 1\nClique para jogar o dado"
+            size_hint: root.tamanho_x, root.tamanho_y
+            on_press: root.jogar_dado1()
+            pos_hint: {'center_y': .5}
+            disabled: not root.vez_jogador1
+
+        Label:
+            text: root.resultado_dado1
+            size_hint: root.tamanho_x, root.tamanho_y
+            pos_hint: {'center_y': .5}
+            color: 'black'
+            background_color: (1,0,0,1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+        Label:
+            text: root.resultado_dado2
+            size_hint: root.tamanho_x, root.tamanho_y
+            pos_hint: {'center_y': .5}
+            color: 'black'
+            background_color: (1,0,0,1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+        Button:
+            text: "Jogador 2\nJogue o Dado"
+            on_press: root.jogar_dado2()
+            size_hint: root.tamanho_x, root.tamanho_y
+            pos_hint: {'center_y': .5}
+            disabled: not root.vez_jogador2
+
+    BoxLayout:
+        spacing: '15dp'
+        size_hint: 1, .7
+        Label:
+            text: f'Vitórias:\n{root.mostrar_vitórias1}'
+            # size_hint: root.tamanho_x, root.tamanho_y
+            background_color: (0,1,0,1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+        Label:
+            text: f"Empates:\n{root.mostrar_empates}"
+
+        Label:
+            text: f'Vitórias:\n{root.mostrar_vitórias2}'
+            background_color: (0,1,0,1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
