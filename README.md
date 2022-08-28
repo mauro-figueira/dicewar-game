@@ -1,0 +1,2 @@
+# dicewar-game
+ Simple dice game. In this game, two players throw their own dices subsequently. The game happens in rounds as each round comprises each player's turn. Player 1 throws their dices first, followed by Player 2. The objective of the game in this first version is to roll a number larger than that of the opponent's . Each player's victory is registered in the screen bellow the player's name. Draws are also registered. Above is a display showing the number of rounds played thus far.
